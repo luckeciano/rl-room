@@ -1,3 +1,14 @@
+#!/usr/bin/env python
+
+"""
+Code for Behavior Cloning
+Example usage:
+    LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so python behavior_cloning.py \
+    experts/Humanoid-v2.pkl Humanoid-v2 --render --num_rollouts=20
+
+Author of this script: luckeciano@gmail.com
+"""
+
 import os
 import pickle
 import tensorflow as tf
@@ -105,7 +116,7 @@ def main():
 		print(expert_data['observations'].shape, expert_data['actions'].shape)
 		bc = BehaviorCloning()
 		policy = bc.build_mlp_policy(ob_shape=expert_data['observations'].shape, action_shape=expert_data['actions'].shape)
-		policy = bc.train(policy, S = expert_data['observations'], A = expert_data['actions'], epochs=100, batch_size=32)
+		policy = bc.train(policy, S = expert_data['observations'], A = expert_data['actions'], epochs=500, batch_size=32)
 
 		imitation_data = run_policy(args.envname, args.render, args.max_timesteps, args.num_rollouts, policy)
 
