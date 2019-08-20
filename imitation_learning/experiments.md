@@ -1,4 +1,4 @@
-### Behavior Cloning
+## Behavior Cloning
 
 | Task  | Reward (Mean) | Reward (Std.) | Expert Policy (Mean) | Expert Policy (Std) | 
 | ------ | ------ | ------ | ------ | ------ | 
@@ -22,4 +22,10 @@
 | 25 |  4485.09 | 3371.61 | 
 | 50 | 8828.511 | 3734.51 |
 | 100 | 9833.13 | 2574.10 |
+
+## DAgger
+
+DAgger Learning Curve. We used the same hyperparameters from BC's experiment, except that we only use 5 rollouts of expert policy.
+
+![alt text](https://github.com/luckeciano/rl-room/blob/master/imitation_learning/dagger.png "DAgger")
 
